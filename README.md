@@ -42,7 +42,7 @@ $(".embed").oembed(null, {
     
     startClosed: false, // toggle whether oembed containers should be visible immediately
     handleOpen: '<span class="icon-chevron-down"></span>', // show this custom text/HTML in place of the standard 'show' handle
-    handleClose: '<span class="icon-chevron-up"></span>',  // show this custom text/HTML in place of the standard 'close handle	
+    handleClose: '<span class="icon-chevron-up"></span>',  // show this custom text/HTML in place of the standard 'hide' handle	
     apikeys: {
       amazon : '<your amazon key>',
     }
