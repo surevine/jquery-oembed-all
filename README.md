@@ -19,43 +19,42 @@ This project tries to use embedding techniques in the following order of prefere
 * YQL Screenscape to get embedding details
 * YQL Screenscrape - e.g. pastie
 * JSONP Api lookups Source - With HTML and CSS built in this project - e.g. github, Myspace, Facebook
+* Shortened URLs via `longurl.org`
 
 Quick Start
 -----------
-Add this to your javascript file.
-````
-$(function(){
-   $("a.embed").oembed();
-});
-````
 
-Add `class="embed"` to anchor tag which contains the URL you wish to embed.  
+Add `class="embed"` to the element you wish to embed
 Ex: `<a href="http://www.youtube.com/watch?v=8mwKq7_JlS8" class="embed"></a>`
 
-Shortened Urls
-------------
-This project now handles shortened url's using the JSONP service from http://longurl.org. e.g. http://bit.ly/oP77mm will first lengthen the URL 
-to http://tinychat.com/omginternetparty and then embed as normal. This is experimental - so let me know of problems!
-
-
-
-
-to use...
+Call the `.oembed` function on the relevant elements:
 ````
-<a href="https://github.com/starfishmod/jquery-oembed-all" class="oembed">https://github.com/starfishmod/jquery-oembed-all</a>
+$('.embed').oembed()
 ````
 
-1. url 
-2. options
+The arguments for the `.oembed` function are:
+
+1. URL to override the detected `href` attribute if needed
+2. An options hash
 
 ````
 $(".oembed").oembed(null,{
-    embedMethod: 'auto',	// "auto", "append", "fill"	
+    embedMethod: 'auto',	// "auto", "append", "fill",
+    
+    startClosed: false, // toggle whether oembed containers should be visible immediately
+    handleOpen: '<span class="icon-chevron-down"></span>', // show this custom text/HTML in place of the standard 'show' handle
+    handleClose: '<span class="icon-chevron-up"></span>',  // show this custom text/HTML in place of the standard 'close handle	
     apikeys: {
       amazon : '<your amazon key>',
     }
 });
 ````
+
+
+Testing
+-----------
+* `npm install .`
+* `npm test`
 
 
 Current 3rd party sources include:
@@ -330,6 +329,3 @@ Current 3rd party sources include:
 * TwitLonger
 * http://robohash.org/
 * http://infogr.am/british-council/burma/
-
-
-Plus a lot more :) Feel free to submit
