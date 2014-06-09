@@ -1,3 +1,5 @@
+var id = 1
+
 var makeLink = function(link) {
     return '<a href="'+link+'">link</a>'
 }
@@ -7,7 +9,8 @@ var makeOembedLink = function(link) {
 }
 
 var makeCleanNode = function(content) {
-    return $('<div>'+content+'</div>')
+    var html = '<div id="container-'+(id++)+'">'+content+'</div>'
+    return $(html)
 }
 
 var makeNode = function(content) {

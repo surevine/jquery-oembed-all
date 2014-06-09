@@ -166,10 +166,12 @@
     }
 
     function embedCode(container, externalUrl, embedProvider) {
-      if ($('#jqoembeddata').data(externalUrl)!=undefined && embedProvider.embedtag.tag!='iframe'){
-        var oembedData = {code: $('#jqoembeddata').data(externalUrl)};
-        success(oembedData, externalUrl, container);
-      }else if (embedProvider.yql) {
+//      if ($('#jqoembeddata').data(externalUrl)!=undefined && embedProvider.embedtag.tag!='iframe'){
+//        console.log("STCUKHERE")
+//        var oembedData = {code: $('#jqoembeddata').data(externalUrl)};
+//        success(oembedData, externalUrl, container);
+//      }else 
+          if (embedProvider.yql) {
         var from = embedProvider.yql.from || 'htmlstring';
 		var url = embedProvider.yql.url ? embedProvider.yql.url(externalUrl) : externalUrl;
         var query = 'SELECT * FROM ' 
@@ -335,10 +337,17 @@
               container.wrap('<div class="oembedall-container"></div>');
               var oembedContainer = container.parent();
 			  if (settings.includeHandle) {
-				  $('<span class="oembedall-closehide">&darr;</span>').insertBefore(container).click(function() {
-					  var encodedString = encodeURIComponent($(this).text());
-					  $(this).html((encodedString == '%E2%86%91') ? '&darr;' : '&uarr;');
-					  $(this).parent().children().last().toggle();
+                  var handleOpen = settings.handleOpen || '&darr;'
+                  var handleClose = settings.handleClose || '&uarr;'
+                  var startingHandle = ( settings.startClosed && settings.startClosed === true ? handleOpen : handleClose )
+				  $('<span class="oembedall-closehide">'+startingHandle+'</span>').insertBefore(container).click(function() {
+                      var container = $(this).parent().children().last()
+					  container.toggle();
+                      if ( container.is(':visible') ) {
+                          $(this).html(handleClose)
+                      } else {
+                          $(this).html(handleOpen)
+                      }
 				  });
 			  }
               oembedContainer.append('<br/>');
@@ -369,6 +378,10 @@
                           $('iframe',oembedContainer).height(settings.maxHeight);
                       }
                   }
+              }
+              
+              if (settings.startClosed && settings.startClosed === true) {
+                  oembedContainer.children().last().hide()
               }
               break;
         }

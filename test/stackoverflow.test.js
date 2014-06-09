@@ -17,7 +17,7 @@ describe('Stackoverflow', function() {
         
         var node = makeCleanNode(stackOverflowLink)
         
-        var fakeSO = sandbox.stub($, 'ajax', function(options) {
+        sandbox.stub($, 'ajax', function(options) {
             options.url.should
                 .equal('http://api.stackexchange.com/2.2/questions/1335851?body=true&site=stackoverflow&jsonp=?')
             done()
@@ -30,7 +30,7 @@ describe('Stackoverflow', function() {
         
         var node = makeCleanNode(stackOverflowLink)
         
-        var fakeSO = sinon.stub($, 'ajax', function(options) {
+        sandbox.stub($, 'ajax', function(options) {
             if (options.success) {
                 options.success(apiResponse)
                 
