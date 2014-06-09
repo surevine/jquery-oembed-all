@@ -24,8 +24,7 @@ This project tries to use embedding techniques in the following order of prefere
 Quick Start
 -----------
 
-Add `class="embed"` to the element you wish to embed
-Ex: `<a href="http://www.youtube.com/watch?v=8mwKq7_JlS8" class="embed"></a>`
+Add `class="embed"` to the element you wish to embed: `<a href="http://www.youtube.com/watch?v=8mwKq7_JlS8" class="embed"></a>`
 
 Call the `.oembed` function on the relevant elements:
 ````
@@ -38,7 +37,7 @@ The arguments for the `.oembed` function are:
 2. An options hash
 
 ````
-$(".oembed").oembed(null,{
+$(".oembed").oembed(null, {
     embedMethod: 'auto',	// "auto", "append", "fill",
     
     startClosed: false, // toggle whether oembed containers should be visible immediately
