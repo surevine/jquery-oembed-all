@@ -37,7 +37,7 @@ The arguments for the `.oembed` function are:
 2. An options hash
 
 ````
-$(".oembed").oembed(null, {
+$(".embed").oembed(null, {
     embedMethod: 'auto',	// "auto", "append", "fill",
     
     startClosed: false, // toggle whether oembed containers should be visible immediately
