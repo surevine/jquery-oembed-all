@@ -21,7 +21,7 @@ describe('Imgur', function() {
     })
     
     it('Should make the correct call to YQL when an Imgur link is discovered', function(done) {
-        var node = makeNode(pageLink)
+        var node = makeCleanNode(pageLink)
         
         sandbox.stub($, 'ajax', function(options) {
             options.url.should
@@ -40,7 +40,7 @@ describe('Imgur', function() {
     })
     
     it('Should replace Imgur page links', function(done) {
-        var node = makeNode(pageLink)
+        var node = makeCleanNode(pageLink)
         
         sandbox.stub($, 'ajax', function(options) {
             options.success(yqlResponse)
@@ -55,7 +55,7 @@ describe('Imgur', function() {
     
     // Issue #1
     it.skip('Should replace Imgur image links', function(done) {
-        var node = makeNode(imageLink)
+        var node = makeCleanNode(imageLink)
         
         sandbox.stub($, 'ajax', function(options) {
             options.success(yqlResponse)

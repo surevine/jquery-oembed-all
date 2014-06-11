@@ -16,8 +16,9 @@ module.exports = function(config) {
     // list of files / patterns to load in the browser
     files: [
       'http://code.jquery.com/jquery-1.9.1.min.js',
-      '*.js',
-      'test/**/*.js'
+      'jquery.oembed.js',
+      'test/helper.js',
+      'test/**/*.test.js'
     ],
 
 
