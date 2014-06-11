@@ -19,7 +19,7 @@ describe('Stackoverflow', function() {
         
         sandbox.stub($, 'ajax', function(options) {
             options.url.should
-                .equal('http://api.stackexchange.com/2.2/questions/1335851?body=true&site=stackoverflow&jsonp=?')
+                .equal('//api.stackexchange.com/2.2/questions/1335851?body=true&site=stackoverflow&jsonp=?')
             done()
         })
         

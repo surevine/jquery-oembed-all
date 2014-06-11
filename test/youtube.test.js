@@ -16,6 +16,6 @@ describe('Youtube', function() {
         node.find('iframe').length
             .should.equal(1)
         node.find('iframe').attr('src')
-            .should.include('http://www.youtube.com/embed/M3h00M9dcj4?wmode=transparent')
+            .should.include('//www.youtube.com/embed/M3h00M9dcj4?wmode=transparent')
     })
 })
