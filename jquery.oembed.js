@@ -351,11 +351,17 @@
 				  });
 			  }
               oembedContainer.append('<br/>');
-			  try {
-				  oembedData.code.clone().appendTo(oembedContainer);
+                
+              var oembedContentContainer = $('<div class="oembedall-content"'+
+                  (settings.startClosed && settings.startClosed === true ? 'style="display:none"' : '')+'</div>');
+              
+              try {
+				  oembedData.code.clone().appendTo(oembedContentContainer);
 			  } catch(e) {
-              oembedContainer.append(oembedData.code);
+                  oembedContentContainer.append(oembedData.code);
 			  }			
+              oembedContainer.append(oembedContentContainer)
+                
               /* Make videos semi-responsive
               * If parent div width less than embeded iframe video then iframe gets shrunk to fit smaller width
               * If parent div width greater thans embed iframe use the max widht
@@ -378,10 +384,6 @@
                           $('iframe',oembedContainer).height(settings.maxHeight);
                       }
                   }
-              }
-              
-              if (settings.startClosed && settings.startClosed === true) {
-                  oembedContainer.children().last().hide()
               }
               break;
         }
